@@ -499,6 +499,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
    *
    * // assertions will pass
    * assertThat(ringBearers).contains(entry(oneRing, frodo), entry(nenya, galadriel));
+   * assertThat(ringBearers).contains();
    * assertThat(emptyMap).contains();
    *
    * // assertions will fail
@@ -530,6 +531,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
    *
    * // assertions will pass
    * assertThat(ringBearers).containsAnyOf(entry(oneRing, frodo), entry(oneRing, sauron));
+   * assertThat(ringBearers).containsAnyOf();
    * assertThat(emptyMap).containsAnyOf();
    *
    * // assertion will fail
@@ -566,6 +568,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
    *
    * // assertion will succeed
    * assertThat(ringBearers).containsAllEntriesOf(elvesRingBearers);
+   * assertThat(ringBearers).containsAllEntriesOf(emptyMap);
    *
    * // assertion will fail
    * assertThat(elvesRingBearers).containsAllEntriesOf(ringBearers);</code></pre>

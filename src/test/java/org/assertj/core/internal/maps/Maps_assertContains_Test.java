@@ -68,8 +68,8 @@ class Maps_assertContains_Test extends MapsBaseTest {
 
   @SuppressWarnings("unchecked")
   @Test
-  void should_throw_error_if_array_of_entries_to_look_for_is_empty() {
-    assertThatExceptionOfType(AssertionError.class).isThrownBy(() -> maps.assertContains(someInfo(), actual, new MapEntry[0]));
+  void should_pass_if_given_entries_are_empty() {
+    maps.assertContains(someInfo(), actual, new MapEntry[0]);
   }
 
   @Test

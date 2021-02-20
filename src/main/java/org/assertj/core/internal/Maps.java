@@ -346,9 +346,8 @@ public class Maps {
                                     Map.Entry<? extends K, ? extends V>[] entries) {
     failIfNull(entries);
     assertNotNull(info, actual);
-    // if both actual and values are empty, then assertion passes.
-    if (actual.isEmpty() && entries.length == 0) return;
-    failIfEmptySinceActualIsNotEmpty(entries);
+    // if values are empty, then assertion passes.
+    if (entries.length == 0) return;
     Set<Map.Entry<? extends K, ? extends V>> notFound = new LinkedHashSet<>();
     for (Map.Entry<? extends K, ? extends V> entry : entries) {
       if (!containsEntry(actual, entry)) notFound.add(entry);
@@ -361,9 +360,8 @@ public class Maps {
                                          Map.Entry<? extends K, ? extends V>[] entries) {
     failIfNull(entries);
     assertNotNull(info, actual);
-    // if both actual and values are empty, then assertion passes.
-    if (actual.isEmpty() && entries.length == 0) return;
-    failIfEmptySinceActualIsNotEmpty(entries);
+    // if values are empty, then assertion passes.
+    if (entries.length == 0) return;
     for (Map.Entry<? extends K, ? extends V> entry : entries) {
       if (containsEntry(actual, entry)) return;
     }
@@ -879,10 +877,6 @@ public class Maps {
 
   private void assertNotNull(AssertionInfo info, Map<?, ?> actual) {
     Objects.instance().assertNotNull(info, actual);
-  }
-
-  private static <K, V> void failIfEmptySinceActualIsNotEmpty(Map.Entry<? extends K, ? extends V>[] values) {
-    if (values.length == 0) throw new AssertionError("actual is not empty");
   }
 
 }
